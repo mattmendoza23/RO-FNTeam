@@ -48,18 +48,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  var morningTitle = 'MAF';
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        leading: Icon(Icons.account_circle_rounded),
+
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -184,11 +175,36 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Text("MAF", style: TextStyle(fontWeight: FontWeight.bold)),
+                        children: [
+                          Text(morningTitle, style: TextStyle(fontWeight: FontWeight.bold)),
                           Text("0645-0700"),
                           Text("CQ"),
                         ],
+                      )
+                    ),
+                  ]
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 100,
+                      margin: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(3.0),
+                       decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 180, 184, 187),
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: TextButton(
+                        child: Text('Admin'),
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return AdminPage();
+                        })),
                       )
                     ),
                   ]
@@ -197,6 +213,32 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class AdminPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('MK'),
+        leading: Icon(Icons.account_circle_rounded),
+
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ), 
+
+
+
     );
   }
 }
