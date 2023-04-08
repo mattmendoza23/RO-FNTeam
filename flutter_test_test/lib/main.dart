@@ -48,16 +48,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  var breakfastText = "Jarius Stewart's Bacon, Egg, Cheese Ciabatta";
+  var lunchText = "Jetta Kroll's Bourbon Akai BBQ Chicken";
 
-  void _incrementCounter() {
+  void setBreakfastText(String bt){
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      breakfastText = bt;
+    });
+  }
+  void setLunchText(String l){
+    setState(() {
+      lunchText = l;
     });
   }
 
@@ -284,10 +285,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Text("Breakfast", style: TextStyle(fontWeight: FontWeight.bold)),
                           Text("0600-0800"),
-                          Text("Jarius Stewart's Bacon, Egg, Cheese Ciabatta"),
+                          Text(breakfastText),
                         ],
                       )
                     ),
@@ -309,10 +310,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           Text("NMF (CG02/4 First) & Lunch (1155)", style: TextStyle(fontWeight: FontWeight.bold)),
                           Text("1135-1215"),
-                          Text("Jetta Kroll's Bourbon Akai BBQ Chicken"),
+                          Text(lunchText),
                         ],
                       )
                     ),
@@ -500,10 +501,114 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ]
               ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 150,
+                      margin: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(3.0),
+                       decoration: BoxDecoration(
+                        color: Colors.grey,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: TextButton(
+                        child: const Text("Test Admin Page/Button", style: TextStyle(color: Colors.black),),
+                        onPressed: () {_awaitReturnValueFromSecondScreen(context);}
+                      )
+                    ),
+                  ]
+                ),
             ]
           ),
         ),
       ),
     );
+  }
+
+  void _awaitReturnValueFromSecondScreen(BuildContext context) async {
+
+    // start the SecondScreen and wait for it to finish with a result
+    AdminPassInfo result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AdminPage(),
+        ));
+
+    // after the SecondScreen result comes back update the Text widget with it
+    setState(() {
+      breakfastText = result.breakfastText;
+      lunchText = result.lunchText;
+    });
+  }
+}
+
+class AdminPage extends StatelessWidget{
+  @override
+  final btController = TextEditingController();
+  final lController = TextEditingController();
+  var bt = "e";
+  void _setText() {
+    setState(){
+      bt = btController.text;
+    }
+  }
+
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('Admin RO'),
+        leading: Icon(Icons.account_circle_rounded),
+
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: btController,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: "Breakfast: ",
+                ),
+              ),
+              TextFormField(
+                controller: lController,
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: "Lunch: ",
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, AdminPassInfo(btController.text, lController.text, 2));
+                },
+                child: const Text('Submit'),
+              )
+            ],
+          ),
+        ),
+      ), 
+    );
+  }
+}
+
+class AdminPassInfo{
+  var breakfastText = "";
+  var lunchText = "";
+  var number = 0;
+
+  AdminPassInfo(breakfastTextN, lunchTextN, numberN){
+    breakfastText = breakfastTextN;
+    lunchText = lunchTextN;
+    number = numberN;
   }
 }
