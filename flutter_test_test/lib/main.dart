@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Routine Order',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Routine Order'),
     );
   }
 }
@@ -80,6 +80,81 @@ class _MyHomePageState extends State<MyHomePage> {
           alignment: Alignment.center,
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 100,
+                      width: 400,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("April 8, 2023", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("Silver Saturday: OCPs"),
+                          Text("Current Weather: 40°F and Sunny"),
+                        ],
+                      )
+                    ),
+                  ]
+              ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 200,
+                    width: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("Reveille:"),
+                        Text("Taps:"),
+                        Text("Gym:"),
+                        Text("Library:"),
+                      ],
+                    )
+                  ),
+                  SizedBox(
+                    height: 200,
+                    width: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("0700"),
+                        Text("0130"),
+                        Text("0800-1800"),
+                        Text("Closed"),
+                      ],
+                    )
+                  ),SizedBox(
+                    height: 200,
+                    width: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("Hap's:"),
+                        Text("Pool:"),
+                        Text("C-Store:"),
+                      ],
+                    )
+                  ),
+                  SizedBox(
+                    height: 200,
+                    width: 100,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text("1800-2400"),
+                        Text("1300-1800"),
+                        Text("Closed"),
+                      ],
+                    )
+                  ),
+                ]
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -192,7 +267,239 @@ class _MyHomePageState extends State<MyHomePage> {
                       )
                     ),
                   ]
-                )
+                ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 400,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("Breakfast", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("0600-0800"),
+                          Text("Jarius Stewart's Bacon, Egg, Cheese Ciabatta"),
+                        ],
+                      )
+                    ),
+                  ]
+                ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 400,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("NMF (CG02/4 First) & Lunch (1155)", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("1135-1215"),
+                          Text("Jetta Kroll's Bourbon Akai BBQ Chicken"),
+                        ],
+                      )
+                    ),
+                  ]
+                ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      )
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("Character Discussion", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("1245-1338"),
+                          Text("SAR"),
+                        ],
+                      )
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("Character Discussion", textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("1245-1338"),
+                          Text("SAR"),
+                        ],
+                      )
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("Warfighter Talk", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("1245-1338"),
+                          Text("F1"),
+                        ],
+                      )
+                    ),
+                  ]
+                ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 400,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text("Dinner", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("1700-1950"),
+                          Text("Caden Hubner's Sheppard's Pie"),
+                        ],
+                      )
+                    ),
+                  ]
+                ),
+                Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2.0,
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        Text("Optional", style: TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    )
+                  ),
+                  Container(
+                    height: 50,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 2.0,
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        Text("Mandatory", style: TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    )
+                  ),
+                ]
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 200,
+                      width: 400,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text("OD: TSgt Manuel (719) 238-6541"),
+                          Text("ONLY CALL OR TEAMS MESSAGE THE OD"),
+                          Text("SOD 1: Alex Schwier (918) 990-0114"),
+                          Text("SOD 2: Taylor Mtzger (719) 339-9280"),
+                          Text("CWOC: (719) 333-2910"),
+                          Text("24/7 CWOC: C2C Nicholas Martin (860) 519-7331"),
+                        ],
+                      )
+                    ),
+                  ]
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 200,
+                      width: 400,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text("Written By: C/SMSgt Hailey D. Kim"),
+                          Text("Approved By: C/Col Sara M. Deczynski"),
+                        ],
+                      )
+                    ),
+                  ]
+              ),
             ]
           ),
         ),
